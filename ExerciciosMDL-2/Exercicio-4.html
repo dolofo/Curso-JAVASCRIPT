@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Manipulando DOM</title>
+</head>
+<body>
+    <div id="app">
+        <form id=form>
+            <input type="text" name="nome"/>
+        </form>
+            <button onclick="adicionar()">Adicionar</button>
+     
+    </div>
+
+    <script>
+       
+        //criar ul
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+
+        function adicionar (){  
+            //query selector input value and reset
+            var input = document.querySelector('input[name=nome]').value
+            document.getElementById('form').reset()
+
+            //element ul created dinamic
+            var ul = document.createElement('ul')
+            ul.setAttribute('name', 'ul')
+
+            //ul - li result and nomes.push after nomes Array
+            var div = document.querySelector('div#app')
+                nomes.push(input)
+                div.appendChild(ul)
+
+            //get values from nomes "Diego", "Gabriel", "Lucas"
+            for(i = 0; i < nomes.length; i++){
+                var li = document.createElement('li')
+                var nome = nomes[i]
+                li.appendChild(document.createTextNode(nome))
+                ul.appendChild(li) 
+            }   
+        }
+    </script>
+</body>
+</html>

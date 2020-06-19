@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <title>Manipulando DOM</title>
+</head>
+<body>
+    <div id="app">
+    <button id= bt>Adicionar Caixa</button>
+    <div id="caixa", name="containerCaixa"></div>
+</div>
+
+    <script>
+// 1º EXERCÍCIO
+// Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+// vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+// aparecer na tela.
+
+// 2º EXERCÍCIO
+// Utilizando o resultado do primeiro desafio, toda vez que o usuário passar o mouse por cima de
+// algum quadrado troque sua cor para uma cor aleatória gerada pela função abaixo:
+// function getRandomColor() {
+//  var letters = "0123456789ABCDEF";
+//  var color = "#";
+//  for (var i = 0; i < 6; i++) {
+//  color += letters[Math.floor(Math.random() * 16)];
+//  }
+//  return color;
+// }
+// var newColor = getRandomColor(); // #E943F0
+
+
+//Resposta Exercício 1 e 2 
+   var bt = document.querySelector('div#app button')      
+    bt.onclick = function addView(){
+            //criar elemento
+                    var caixa = document.createElement('div')
+                    caixa.setAttribute('name','caixa')
+            //estiliza elemento                 
+                    caixa.style.width = "100px"
+                    caixa.style.height = "100px",
+                    caixa.style.backgroundColor = 'red'
+            //adiciona elemento na dom
+                    var add = document.querySelector('div[name=containerCaixa]')
+                    console.log(add)
+                    add.appendChild(caixa)
+            //mudar cor dinamicamente
+                    var botao = document.querySelector('div[name=caixa]')
+        botao.onmouseover =  function mudarCor () {
+                        botao.style.backgroundColor = getRandomColor()
+                    }
+        
+    }
+
+    function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+                }
+            return color;
+            }
+            var newColor = getRandomColor(); // #E943F0
+        
+
+    </script>
+</body>
+</html>
