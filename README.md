@@ -1,2 +1,2 @@
 # Curso-JAVASCRIPT
-Respostas curso Javascript - Rocketseat
+Respostas curso Javascript - ROCKETSEAT
